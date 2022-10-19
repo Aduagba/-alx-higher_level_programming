@@ -1,52 +1,25 @@
 #!/usr/bin/python3
 """
-    2-matrix_divide: matrix_divide()
+This is the "5-test_indentation" module.
+The 5-text_indentation module supplies one function, text_indentation(text).
 """
 
 
-def matrix_divided(matrix, div):
-    """
-        matrix_divide() divides all elements of a matrix.
-        Args:
-            matrix: list of lists of integers.
-            div: number to be divided by.
-        Returns:
-            new matrix.
-    """
-    new_matrix = []
-    temp = []
-    if type(div) not in [int, float]:
-        raise TypeError("div must be a number")
-    if div is 0:
-        raise ZeroDivisionError("division by zero")
-    if not isinstance(matrix, list):
-        raise TypeError("matrix must be a\
- matrix (list of lists) of integers/floats")
-    if len(matrix) is 0:
-        raise TypeError("matrix must be a\
- matrix (list of lists) of integers/floats")
-    elif len(matrix) is 1:
-        for item in matrix[0]:
-            if type(item) not in [int, float]:
-                raise TypeError("matrix must be a\
- matrix (list of lists) of integers/floats")
-            temp.append(float("{:.2f}".format(item / div)))
-        new_matrix.append(temp)
-        return new_matrix
-    else:
-        length = len(matrix[0])
-        for l_int in matrix:
-            if not isinstance(l_int, list):
-                raise TypeError("matrix must be a\
- matrix (list of lists) of integers/floats")
-            if len(l_int) != length:
-                raise TypeError("Each row of the matrix\
- must have the same size")
-            for num in l_int:
-                if type(num) not in [int, float]:
-                    raise TypeError("matrix must be a\
- matrix (list of lists) of integers/floats")
-                temp.append(float("{:.2f}".format(num / div)))
-            new_matrix.append(temp)
-            temp = []
-        return 
+def text_indentation(text):
+    """splits a text into lines along "?", ":", "." followed by 2 new lines"""
+    if type(text) is not str:
+        raise TypeError("text must be a string")
+    flag = 0
+    for a in text:
+        if flag == 0:
+            if a == ' ':
+                continue
+            else:
+                flag = 1
+        if flag == 1:
+            if a == '?' or a == '.' or a == ':':
+                print(a)
+                print()
+                flag = 0
+            else:
+                print(a, end="")
