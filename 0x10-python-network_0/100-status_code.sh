@@ -1,5 +1,3 @@
 #!/bin/bash
-# sends a request to a URL passed as an argument
-curl -sI -w '%{response_code}' "$1" -o /dev/null#!/bin/bash
-# sends a request to a URL passed as an argument
-curl -sI -w '%{response_code}' "$1" -o /dev/null
+# Sends a GET request to a given URL and display the response status code.
+curl -s -o /dev/null -w "%{http_code}" "$1"
